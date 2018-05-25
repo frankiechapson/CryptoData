@@ -116,27 +116,27 @@ we can see it again
     
 **PKG_CRYPTO** package manages the keys, and data decoding and encoding.
 
-        PROCEDURE ADD_KEY( I_KEY_NAME   IN VARCHAR2, I_KEY_VALUE  IN VARCHAR2 )
-            Adds or updates the key value of the specified key.
+    PROCEDURE ADD_KEY( I_KEY_NAME   IN VARCHAR2, I_KEY_VALUE  IN VARCHAR2 )
+        Adds or updates the key value of the specified key.
 
-        PROCEDURE DEL_KEY( I_KEY_NAME IN VARCHAR2 )
-            Removes the specified key from list of the active session keys
+    PROCEDURE DEL_KEY( I_KEY_NAME IN VARCHAR2 )
+        Removes the specified key from list of the active session keys
 
-        PROCEDURE SET_KEY( I_KEY_NAME IN VARCHAR2 )
-            For inserting/updating there must be at least one current key to encrypt data. We can set it by this proceudre.
+    PROCEDURE SET_KEY( I_KEY_NAME IN VARCHAR2 )
+        For inserting/updating there must be at least one current key to encrypt data. We can set it by this proceudre.
 
-        FUNCTION  GET_KEY      RETURN VARCHAR2
-            Returns with the name of the current (encrypt) key.
+    FUNCTION  GET_KEY      RETURN VARCHAR2
+        Returns with the name of the current (encrypt) key.
 
-        FUNCTION  ENCRYPT( I_VALUE     IN VARCHAR2 ) RETURN VARCHAR2
-            Returns with the encrypted form of the specified value. Both the value and encrypted forms are strings. 
-            The function uses the current key for encrypting.
+    FUNCTION  ENCRYPT( I_VALUE     IN VARCHAR2 ) RETURN VARCHAR2
+        Returns with the encrypted form of the specified value. Both the value and encrypted forms are strings. 
+        The function uses the current key for encrypting.
 
-        FUNCTION  DECRYPT( I_VALUE     IN VARCHAR2, I_KEY_NAME  IN VARCHAR2 ) RETURN VARCHAR2
-            Returns with the decrypted form of the specified value. The function uses the specified key (name) for decrypting.
-            Returns with null if the key name does not exsist in the list of set up keys, or in case of any other invalid situation.
-            
-        ENCRYPT_DATA and DECRYPT_DATA functions are only references to the ENCRYPT and DECRYPT functions in the PKG_CRYPTO package.
+    FUNCTION  DECRYPT( I_VALUE     IN VARCHAR2, I_KEY_NAME  IN VARCHAR2 ) RETURN VARCHAR2
+        Returns with the decrypted form of the specified value. The function uses the specified key (name) for decrypting.
+        Returns with null if the key name does not exsist in the list of set up keys, or in case of any other invalid situation.
+        
+    ENCRYPT_DATA and DECRYPT_DATA functions are only references to the ENCRYPT and DECRYPT functions in the PKG_CRYPTO package.
 
                      
 ## Licence
